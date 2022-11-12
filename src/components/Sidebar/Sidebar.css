@@ -20,6 +20,6 @@
     width: 3rem;
     height: 3rem;
 }
-.log>span>span{
+.logo>span>span{
     color: var(--pink);
 }
