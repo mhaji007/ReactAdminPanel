@@ -6,7 +6,6 @@ import {
   UilUsersAlt,
   UilPackage,
   UilChart,
-  UilSignOutAlt,
 } from "@iconscout/react-unicons";
 
 // Sidebar Data
