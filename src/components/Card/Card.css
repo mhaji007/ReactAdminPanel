@@ -13,7 +13,7 @@
     box-shadow: none !important;
 }
 
-/* radial bar */
+/* Radial bar */
 .radialBar {
     flex: 1 1;
     display: flex;
@@ -46,7 +46,7 @@
     font-weight: bold;
 }
 
-/* sideDetail*/
+/* SideDetail*/
 .detail {
     flex: 1;
     display: flex;
