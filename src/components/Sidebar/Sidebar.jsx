@@ -1,40 +1,67 @@
 import React, { useState } from "react";
 import "./Sidebar.css";
 import Logo from "../../images/logo.png";
-
-import { sidebarData } from "../../data/data";
 import { UilSignOutAlt } from "@iconscout/react-unicons";
+import { sidebarData } from "../../data/data";
+import { UilBars } from "@iconscout/react-unicons";
+import { motion } from "framer-motion";
 
 const Sidebar = () => {
   const [selected, setSelected] = useState(0);
+
+  const [expanded, setExpaned] = useState(true);
+
+  const sidebarVariants = {
+    true: {
+      left: "0",
+    },
+    false: {
+      left: "-60%",
+    },
+  };
+
   return (
-    <div className="sidebar">
-      {/* Logo */}
-      <div className="logo">
-        <img src={Logo} alt="" />
-        <span>
-          D<span>A</span>SH
-        </span>
+    <>
+      <div
+        className="bars"
+        style={expanded ? { left: "60%" } : { left: "5%" }}
+        onClick={() => setExpaned(!expanded)}
+      >
+        <UilBars />
       </div>
-      {/* Menu */}
-      <div className="menu">
-        {sidebarData.map((item, index) => {
-          return (
-            <div
-              className={selected === index ? "menuItem active" : "menuItem"}
-              key={index}
-              onClick={() => setSelected(index)}
-            >
-              <item.icon />
-              <span>{item.heading}</span>
-            </div>
-          );
-        })}
-        <div className="menuItem">
-          <UilSignOutAlt />
+      <motion.div
+        className="Sidebar"
+        variants={sidebarVariants}
+        animate={window.innerWidth <= 768 ? `${expanded}` : ""}
+      >
+        {/* logo */}
+        <div className="logo">
+          <img src={Logo} alt="logo" />
+          <span>
+            Sh<span>o</span>ps
+          </span>
         </div>
-      </div>
-    </div>
+
+        <div className="menu">
+          {sidebarData.map((item, index) => {
+            return (
+              <div
+                className={selected === index ? "menuItem active" : "menuItem"}
+                key={index}
+                onClick={() => setSelected(index)}
+              >
+                <item.icon />
+                <span>{item.heading}</span>
+              </div>
+            );
+          })}
+          {/* signoutIcon */}
+          <div className="menuItem">
+            <UilSignOutAlt />
+          </div>
+        </div>
+      </motion.div>
+    </>
   );
 };
 

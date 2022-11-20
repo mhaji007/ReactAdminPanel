@@ -11,6 +11,11 @@ import {
 // Analytics Cards imports
 import { UilUsdSquare, UilMoneyWithdrawal } from "@iconscout/react-unicons";
 
+// Recent Card Imports
+import img1 from "../images/img1.png";
+import img2 from "../images/img2.png";
+import img3 from "../images/img3.png";
+
 // Sidebar Data
 export const sidebarData = [
   {
